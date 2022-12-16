@@ -4,26 +4,53 @@ import 'package:flutter/material.dart';
 import 'package:verification_code_field/src/models/cell_theme.dart';
 import 'package:verification_code_field/src/widgets/cell.dart';
 
+export 'package:verification_code_field/src/models/cell_theme.dart';
+
 const _maxLength = 4;
 
 class VerificationCodeField extends StatefulWidget {
-  /// Code length, (minimum and default value is 4)
+  /// Code length
+  ///
+  /// Default value is 4
   final int length;
 
   /// Function to be called when fields are filled
   final VoidCallback? onSubmit;
+
+  /// Whether automatically focus on field or not
+  ///
+  /// Default value is true
+  final bool autofocus;
 
   /// Controls the theme of each [Cell]
   ///
   /// If null [DefaultCellTheme] will be used
   final CellTheme? cellTheme;
 
-  /// Custom header widget to place above the [VerificationCodeField]
+  /// Custom header widget
+  ///
+  /// Will be placed above the [VerificationCodeField]
   final Widget? header;
 
-  /// Decides what type of keyboard should be displayed.
+  /// Whether field is enabled ot not
   ///
-  /// Default is [TextInputType.number]
+  /// Default value is [true]
+  final bool? enabled;
+
+  /// Whether to show the indicator or not
+  ///
+  /// Default value is [true]
+  final bool showFocusIndicator;
+
+  /// Whether to blink the indicator or not
+  ///
+  /// [showFocusIndicator] should be [true]
+  /// Default value is [true]
+  final bool blinkFocusIndicator;
+
+  /// Decides what type of keyboard should be displayed
+  ///
+  /// Default value is [TextInputType.number]
   final TextInputType? keyboardType;
 
   /// A [FocusNode] for managing focus on field
@@ -33,10 +60,14 @@ class VerificationCodeField extends StatefulWidget {
     super.key,
     this.length = _maxLength,
     required this.onSubmit,
+    this.autofocus = true,
+    this.enabled = true,
     this.keyboardType,
     this.focusNode,
     this.header,
     this.cellTheme,
+    this.showFocusIndicator = true,
+    this.blinkFocusIndicator = true,
   });
 
   @override
@@ -70,7 +101,8 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
           maintainSize: true,
           maintainAnimation: true,
           child: TextField(
-            autofocus: true,
+            autofocus: widget.autofocus,
+            enabled: widget.enabled,
             keyboardType: widget.keyboardType ?? TextInputType.number,
             maxLength: maxCodeLength,
             focusNode: _focusNode,
@@ -90,11 +122,16 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
                   maxCodeLength,
                   (index) {
                     final isFilled = index < code.length;
+                    final isFocused =
+                        index == code.length && _focusNode.hasFocus;
                     return Cell(
                       key: UniqueKey(),
                       isFilled: isFilled,
-                      theme: widget.cellTheme,
-                      isFocused: index == code.length && _focusNode.hasFocus,
+                      theme: widget.cellTheme ?? CellTheme(),
+                      isFocused: isFocused,
+                      showFocusIndicator:
+                          widget.showFocusIndicator && isFocused,
+                      blinkFocusIndicator: widget.blinkFocusIndicator,
                       value: isFilled ? code[index] : null,
                     );
                   },

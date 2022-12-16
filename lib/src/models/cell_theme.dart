@@ -1,34 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:verification_code_field/src/theme/colors.dart';
+import 'package:verification_code_field/src/theme/colors.dart' as colors;
 
 class CellTheme {
-  final double? height;
-  final double? width;
-  final double? borderWidth;
-  final Color? borderColor;
-  final Color? backgroundColor;
-  final TextStyle? textStyle;
+  final double height;
+  final double width;
+  final double borderWidth;
+  final Color borderColor;
+  final Color backgroundColor;
+  final TextStyle textStyle;
 
   CellTheme({
-    this.borderColor,
-    this.backgroundColor,
-    this.textStyle,
-    this.height,
-    this.width,
-    this.borderWidth,
+    this.height = 50,
+    this.width = 40,
+    this.borderWidth = 1,
+    this.borderColor = colors.primaryColor,
+    this.backgroundColor = colors.backgroundColor,
+    this.textStyle = const TextStyle(
+      color: colors.primaryColor,
+      fontWeight: FontWeight.bold,
+    ),
   });
-}
-
-class DefaultCellTheme extends CellTheme {
-  DefaultCellTheme()
-      : super(
-          height: 50,
-          width: 40,
-          backgroundColor: backgroundColor,
-          borderColor: primaryColor,
-          textStyle: const TextStyle(
-            color: primaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-        );
 }
