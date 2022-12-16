@@ -1,19 +1,24 @@
-// Default values
-
 import 'package:flutter/material.dart';
 import 'package:verification_code_field/src/models/cell_theme.dart';
 import 'package:verification_code_field/src/widgets/blinker.dart';
 
 // Cell border radius
 const _borderRadius = 7.0;
-// Default filled cell color
 
 class Cell extends StatelessWidget {
+  /// Is this is a currently focused cell
   final bool isFocused;
 
+  /// Value of each cell
   final String? value;
+
+  /// Controls the look of each cell
   final CellTheme theme;
+
+  /// Whether to show a focus indicator or not
   final bool showFocusIndicator;
+
+  /// Whether to blink focus Indicator or not
   final bool blinkFocusIndicator;
 
   const Cell({
