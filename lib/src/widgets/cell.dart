@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:verification_code_field/src/models/cell_theme.dart';
 import 'package:verification_code_field/src/widgets/blinker.dart';
 
-// Cell border radius
-const _borderRadius = 7.0;
-
 class Cell extends StatelessWidget {
   /// Is this is a currently focused cell
   final bool isFocused;
@@ -38,7 +35,7 @@ class Cell extends StatelessWidget {
       height: theme.height,
       alignment: Alignment.bottomCenter,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(_borderRadius),
+        borderRadius: BorderRadius.circular(theme.borderRadius),
         border: Border.all(
           color: theme.borderColor,
           width: theme.borderWidth,
