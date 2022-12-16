@@ -2,8 +2,6 @@
 
 **This package is only tested on Android and iOS**
 
----
-
 Simple verification code input field
 
 Carefully read available props and functionalities to be able to decide
@@ -13,19 +11,10 @@ In case you need more advanced features you can take a look at [Flutter_Pinput](
 
 ## Demo
 
-<br />
-
-<div style="display: flex; flex-direction: row">
-    <div>iOS</div>
-    <img src="demo/demo_ios.gif" height="600" width="300">
-    <div style="margin-right: 20px"></div>
-    <div>Android</div>
-    <img src="demo/demo_android.gif" height="600" width="300">
+<div style="flex-direction: row;">
+    <img src="demo/demo_android.gif" width="250" height="500">
+    <img src="demo/demo_ios.gif" width="250" height="500">
 </div>
-
-<br />
-
----
 
 <br />
 
