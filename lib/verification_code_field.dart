@@ -24,7 +24,7 @@ class VerificationCodeField extends StatefulWidget {
 
   /// Controls the theme of each [Cell]
   ///
-  /// If null [DefaultCellTheme] will be used
+  /// If null default props of [CellTheme] class will be used
   final CellTheme? cellTheme;
 
   /// Custom header widget
@@ -121,18 +121,17 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
                 children: List<Widget>.generate(
                   maxCodeLength,
                   (index) {
-                    final isFilled = index < code.length;
                     final isFocused =
                         index == code.length && _focusNode.hasFocus;
                     return Cell(
                       key: UniqueKey(),
-                      isFilled: isFilled,
                       theme: widget.cellTheme ?? CellTheme(),
                       isFocused: isFocused,
                       showFocusIndicator:
                           widget.showFocusIndicator && isFocused,
                       blinkFocusIndicator: widget.blinkFocusIndicator,
-                      value: isFilled ? code[index] : null,
+                      // prevent access of a non existent list member
+                      value: index < code.length ? code[index] : null,
                     );
                   },
                 ),

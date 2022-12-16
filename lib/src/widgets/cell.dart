@@ -10,7 +10,7 @@ const _borderRadius = 7.0;
 
 class Cell extends StatelessWidget {
   final bool isFocused;
-  final bool isFilled;
+
   final String? value;
   final CellTheme theme;
   final bool showFocusIndicator;
@@ -19,7 +19,6 @@ class Cell extends StatelessWidget {
   const Cell({
     super.key,
     required this.isFocused,
-    required this.isFilled,
     required this.value,
     required this.theme,
     required this.showFocusIndicator,
@@ -51,7 +50,7 @@ class Cell extends StatelessWidget {
             )
           : Center(
               child: Text(
-                isFilled ? value! : ' ',
+                value ?? ' ',
                 style: cellTextStyle.merge(theme.textStyle),
               ),
             ),
