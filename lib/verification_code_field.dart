@@ -116,8 +116,10 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
             if (widget.header != null) widget.header!,
             GestureDetector(
               onTap: _focusNode.requestFocus,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                runSpacing: 20,
+                spacing: 20,
                 children: List<Widget>.generate(
                   maxCodeLength,
                   (index) {
