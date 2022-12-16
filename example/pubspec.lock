@@ -157,7 +157,7 @@ packages:
     source: hosted
     version: "2.1.2"
   verification_code_field:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: ".."
       relative: true
