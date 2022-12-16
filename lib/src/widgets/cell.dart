@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:verification_code_field/src/models/cell_theme.dart';
 import 'package:verification_code_field/src/widgets/blinker.dart';
 
+/// Single cell in [CodeVerificationField] group of cells
 class Cell extends StatelessWidget {
   /// Is this is a currently focused cell
   final bool isFocused;
@@ -29,7 +30,6 @@ class Cell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cellTextStyle = Theme.of(context).textTheme.headline6!;
     return Container(
       width: theme.width,
       height: theme.height,
@@ -53,7 +53,7 @@ class Cell extends StatelessWidget {
           : Center(
               child: Text(
                 value ?? ' ',
-                style: cellTextStyle.merge(theme.textStyle),
+                style: theme.textStyle,
               ),
             ),
     );
