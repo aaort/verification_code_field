@@ -1,39 +1,40 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## Important
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+**This package is only tested on Android and iOS**
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+This package is aimed to provide simple way vor verification code input.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Carefully read available props and functionalities to be able to decide
+whether this package is what you are looking for or not.
+In case you need more advanced features you can take a look at [Flutter_Pinput](https://github.com/Tkko/Flutter_Pinput.git) and [pin_code_fields](https://github.com/adar2378/pin_code_fields.git)
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Create verification code field with custom look and behavior.
+
+- Provide custom header widget to be displayed above the field
+- Customize cells to look the way that is required by your design
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- Add package to your dependencies in your `pubspec.yaml` file.
+- Run `flutter pug get`.
+- Import it in you file like this: `import 'package:verification_code_field:verification_code_field.dart';`
+
+And you're good to go...
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+The only required prop is `length`, here is a minimal example that you can copy and paste inside your project
 
 ```dart
-const like = 'sample';
+VerificationCodeField(
+    length: 4,
+    obSubmit: () => print('Submitted'),
+    //...
+)
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+I'm open to contributions and suggestions, in case of issues you can DM me or open a new issue
