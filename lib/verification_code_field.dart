@@ -76,13 +76,12 @@ class VerificationCodeField extends StatefulWidget {
 
 class _VerificationCodeFieldState extends State<VerificationCodeField> {
   List<String> code = [];
-  late final maxCodeLength = widget.length;
 
   late final _focusNode = widget.focusNode ?? FocusNode();
 
   void onCodeChanged(value) {
     setState(() => code = value.split(''));
-    if (value.length == maxCodeLength) {
+    if (value.length == widget.length) {
       FocusScope.of(context).unfocus();
       widget.onSubmit != null ? widget.onSubmit!() : null;
     }
@@ -104,7 +103,7 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
             autofocus: widget.autofocus,
             enabled: widget.enabled,
             keyboardType: widget.keyboardType ?? TextInputType.number,
-            maxLength: maxCodeLength,
+            maxLength: widget.length,
             focusNode: _focusNode,
             onChanged: onCodeChanged,
           ),
@@ -121,7 +120,7 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
                 runSpacing: 20,
                 spacing: 20,
                 children: List<Widget>.generate(
-                  maxCodeLength,
+                  widget.length,
                   (index) {
                     final isFocused =
                         index == code.length && _focusNode.hasFocus;
