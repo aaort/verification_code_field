@@ -2,10 +2,13 @@
 
 **This package is only tested on Android and iOS**
 
-This package is aimed to provide simple way vor verification code input.
+Simple verification code input field
+
+<img src="demo/demo.gif" height="600" width="300">
 
 Carefully read available props and functionalities to be able to decide
 whether this package is what you are looking for or not.
+
 In case you need more advanced features you can take a look at [Flutter_Pinput](https://github.com/Tkko/Flutter_Pinput.git) and [pin_code_fields](https://github.com/adar2378/pin_code_fields.git)
 
 ## Features
@@ -17,11 +20,9 @@ Create verification code field with custom look and behavior.
 
 ## Getting started
 
-- Add package to your dependencies in your `pubspec.yaml` file.
+- Add package to your dependencies in `pubspec.yaml` file.
 - Run `flutter pug get`.
-- Import it in you file like this: `import 'package:verification_code_field:verification_code_field.dart';`
-
-And you're good to go...
+- Import it in your file like this: `import 'package:verification_code_field:verification_code_field.dart';`
 
 ## Usage
 
