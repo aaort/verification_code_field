@@ -1,12 +1,11 @@
-## Important
+**This package is only tested on Android and iOS !!!**
 
-**This package is only tested on Android and iOS**
+## Overview
 
 Simple verification code input field
 
 Carefully read available props and functionalities to be able to decide
-whether this package is what you are looking for or not.
-
+whether this package is what you're looking for or not.
 In case you need more advanced features you can take a look at [Flutter_Pinput](https://github.com/Tkko/Flutter_Pinput.git) and [pin_code_fields](https://github.com/adar2378/pin_code_fields.git)
 
 ## Demo
@@ -45,4 +44,4 @@ VerificationCodeField(
 
 ## Additional information
 
-I'm open to contributions and suggestions, in case of issues you can DM me or open a new issue
+I'm open to contributions and suggestions, in case of any issues you can DM me or open a new issue
