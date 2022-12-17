@@ -81,7 +81,7 @@ class VerificationCodeField extends StatefulWidget {
 class _VerificationCodeFieldState extends State<VerificationCodeField> {
   List<String> code = [];
 
-  late final _focusNode = widget.focusNode ?? FocusNode();
+  late final FocusNode _focusNode;
 
   void onCodeChanged(String value) {
     setState(() => code = value.split(''));
@@ -90,6 +90,12 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
       FocusScope.of(context).unfocus();
       if (widget.onSubmit != null) widget.onSubmit!();
     }
+  }
+
+  @override
+  void initState() {
+    _focusNode = widget.focusNode ?? FocusNode();
+    super.initState();
   }
 
   @override
