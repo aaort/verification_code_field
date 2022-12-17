@@ -79,11 +79,11 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
 
   late final _focusNode = widget.focusNode ?? FocusNode();
 
-  void onCodeChanged(value) {
+  void onCodeChanged(String value) {
     setState(() => code = value.split(''));
     if (value.length == widget.length) {
       FocusScope.of(context).unfocus();
-      widget.onSubmit != null ? widget.onSubmit!() : null;
+      if (widget.onSubmit != null) widget.onSubmit!();
     }
   }
 
