@@ -17,6 +17,9 @@ class VerificationCodeField extends StatefulWidget {
   /// Function to be called when fields are filled
   final VoidCallback? onSubmit;
 
+  /// Will be called each time value of field changes
+  final Function(String value)? onChange;
+
   /// Whether automatically focus on field or not
   ///
   /// Default value is true
@@ -60,6 +63,7 @@ class VerificationCodeField extends StatefulWidget {
     super.key,
     this.length = _maxLength,
     this.onSubmit,
+    this.onChange,
     this.autofocus = true,
     this.enabled = true,
     this.keyboardType,
@@ -81,6 +85,7 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
 
   void onCodeChanged(String value) {
     setState(() => code = value.split(''));
+    if (widget.onChange != null) widget.onChange!(value);
     if (value.length == widget.length) {
       FocusScope.of(context).unfocus();
       if (widget.onSubmit != null) widget.onSubmit!();
