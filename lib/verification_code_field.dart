@@ -59,7 +59,7 @@ class VerificationCodeField extends StatefulWidget {
   const VerificationCodeField({
     super.key,
     this.length = _maxLength,
-    required this.onSubmit,
+    this.onSubmit,
     this.autofocus = true,
     this.enabled = true,
     this.keyboardType,
