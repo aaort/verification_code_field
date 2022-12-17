@@ -5,6 +5,7 @@ import 'package:verification_code_field/src/models/cell_theme.dart';
 import 'package:verification_code_field/src/widgets/cell.dart';
 
 export 'package:verification_code_field/src/models/cell_theme.dart';
+export 'package:verification_code_field/src/widgets/cell.dart';
 
 const _maxLength = 4;
 
