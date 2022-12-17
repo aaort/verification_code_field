@@ -99,6 +99,7 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
           maintainInteractivity: true,
           maintainSize: true,
           maintainAnimation: true,
+          maintainSemantics: true,
           child: TextField(
             autofocus: widget.autofocus,
             enabled: widget.enabled,
@@ -121,26 +122,26 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
                 spacing: 20,
                 children: List<Widget>.generate(
                   widget.length,
-                  (index) {
-                    final isFocused =
-                        index == code.length && _focusNode.hasFocus;
-                    return Cell(
-                      key: UniqueKey(),
-                      theme: widget.cellTheme ?? CellTheme(),
-                      isFocused: isFocused,
-                      showFocusIndicator:
-                          widget.showFocusIndicator && isFocused,
-                      blinkFocusIndicator: widget.blinkFocusIndicator,
-                      // prevent access of a non existent list member
-                      value: index < code.length ? code[index] : null,
-                    );
-                  },
+                  buildCell,
                 ),
               ),
             ),
           ],
         ),
       ],
+    );
+  }
+
+  Widget buildCell(int index) {
+    final isFocused = index == code.length && _focusNode.hasFocus;
+    return Cell(
+      key: UniqueKey(),
+      theme: widget.cellTheme ?? CellTheme(),
+      isFocused: isFocused,
+      showFocusIndicator: widget.showFocusIndicator && isFocused,
+      blinkFocusIndicator: widget.blinkFocusIndicator,
+      // prevent access of a non existent list member
+      value: index < code.length ? code[index] : null,
     );
   }
 }
