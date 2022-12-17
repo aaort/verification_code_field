@@ -21,4 +21,16 @@ class CellTheme {
     this.backgroundColor = _backgroundColor,
     this.textStyle = _textStyle,
   });
+
+  /// Creates a [CellTheme] dependent on defined [Theme.of(context)] object
+  ///
+  /// [borderColor] is [Theme.of(context).primaryColor]
+  /// [backgroundColor] is [Theme.of(context).backgroundColor]
+  factory CellTheme.fromTheme(BuildContext context) {
+    final theme = Theme.of(context);
+    return CellTheme(
+      backgroundColor: theme.backgroundColor,
+      borderColor: theme.primaryColor,
+    );
+  }
 }

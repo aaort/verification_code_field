@@ -148,7 +148,7 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
     final isFocused = index == code.length && _focusNode.hasFocus;
     return Cell(
       key: UniqueKey(),
-      theme: widget.cellTheme ?? CellTheme(),
+      theme: widget.cellTheme ?? CellTheme.fromTheme(context),
       isFocused: isFocused,
       showFocusIndicator: widget.showFocusIndicator && isFocused,
       blinkFocusIndicator: widget.blinkFocusIndicator,
