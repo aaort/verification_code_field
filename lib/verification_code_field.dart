@@ -41,6 +41,8 @@ class VerificationCodeField extends StatefulWidget {
   /// Default value is [true]
   final bool? enabled;
 
+  final List<String>? autofillHints;
+
   /// Whether to show the indicator or not
   ///
   /// Default value is [true]
@@ -73,6 +75,7 @@ class VerificationCodeField extends StatefulWidget {
     this.cellTheme,
     this.showFocusIndicator = true,
     this.blinkFocusIndicator = true,
+    this.autofillHints,
   });
 
   @override
@@ -119,6 +122,7 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
             maxLength: widget.length,
             focusNode: _focusNode,
             onChanged: onCodeChanged,
+            autofillHints: widget.autofillHints,
           ),
         ),
         Column(
