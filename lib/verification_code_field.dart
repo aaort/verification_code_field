@@ -69,7 +69,7 @@ class VerificationCodeField extends StatefulWidget {
     this.onChange,
     this.autofocus = true,
     this.enabled = true,
-    this.keyboardType,
+    this.keyboardType = TextInputType.number,
     this.focusNode,
     this.header,
     this.cellTheme,
@@ -118,7 +118,7 @@ class _VerificationCodeFieldState extends State<VerificationCodeField> {
           child: TextField(
             autofocus: widget.autofocus,
             enabled: widget.enabled,
-            keyboardType: widget.keyboardType ?? TextInputType.number,
+            keyboardType: widget.keyboardType,
             maxLength: widget.length,
             focusNode: _focusNode,
             onChanged: onCodeChanged,
