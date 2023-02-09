@@ -37,7 +37,7 @@ The only required prop is `length`, here is a minimal example that you can copy 
 ```dart
 VerificationCodeField(
     length: 4,
-    obSubmit: () => print('Submitted'),
+    onSubmit: () => print('Submitted'),
     //...
 )
 ```
